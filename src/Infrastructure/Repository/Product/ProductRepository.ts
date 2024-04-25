@@ -61,10 +61,31 @@ export default class ProductRepository implements IProductRepository {
         }
         
     }
-    updateProduct(product: ProductDTO): Promise<any> {
+    async updateProduct(product: ProductDTO): Promise<any> {
         throw new Error("Method not implemented.");
     }
-    deleteProduct(statusProduct: boolean): Promise<any> {
-        throw new Error("Method not implemented.");
+    async deleteProduct(id: number): Promise<any> {
+        try {
+
+            const statusProduct = await prisma.product.findUnique({where:{id: id}, select:{statusProduct: true}})
+
+            if(!statusProduct?.statusProduct){
+                return {
+                    message: "Este item ja está desativado"
+                }
+            }
+
+            const response = await prisma.product.update({where: {id: id}, data:{
+                statusProduct: false
+            }})
+
+            return {
+                message: "O item foi desativado",
+                data: response
+            }
+
+        } catch (error) {
+            throw new Error("Error:" + error)
+        }
     }
 }

@@ -6,6 +6,6 @@ export default interface IProductService{
         getProducts(filter: FilterModel): Promise<any>
         insertProduct(product: ProductDTO): Promise<any>
         updateProduct(product: ProductDTO): Promise<any>
-        deleteProduct(statusProduct: boolean): Promise<any>
+        deleteProduct(id: number): Promise<any>
 }
 

@@ -49,7 +49,9 @@ export default class ProductService implements IProductService {
     async updateProduct(product: ProductDTO): Promise<any> {
         throw new Error("Method not implemented.");
     }
-    async deleteProduct(statusProduct: boolean): Promise<any> {
-        throw new Error("Method not implemented.");
+    async deleteProduct(id: number): Promise<any> {
+        const response = await this.productRepository.deleteProduct(id)
+
+        return response
     }
 }
