@@ -36,6 +36,12 @@ export default class ProductService implements IProductService {
         }
     }
     async insertProduct(product: ProductDTO): Promise<any> {
+        if(product.manufacturingDate >= product.expirationDate){
+            return {
+                "Menssagem": "Não é possível atualizar pois a data de fabricação é maior ou igual a data de validade."    
+            }
+        }
+
         const response = await this.productRepository.insertProduct(product)
         if(response?.id){
             return response
@@ -47,6 +53,13 @@ export default class ProductService implements IProductService {
 
     }
     async updateProduct(product: ProductDTO): Promise<any> {
+
+        if(product.manufacturingDate >= product.expirationDate){
+            return {
+                "Menssagem": "Não é possível atualizar pois a data de fabricação é maior ou igual a data de validade."    
+            }
+        }
+
         const response = await this.productRepository.updateProduct(product)
 
         if(response){
