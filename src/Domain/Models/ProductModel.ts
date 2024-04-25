@@ -17,8 +17,8 @@ export default class ProductModel {
         }
         this.description = data.description
         this.statusProduct = data.statusProduct
-        this.expirationDate = data.expirationDate
-        this.manufacturingDate = data.manufacturingDate
+        this.expirationDate = new Date(data.expirationDate) 
+        this.manufacturingDate = new Date(data.manufacturingDate) 
         this.idProvider = data.idProvider
         this.descriptionProvider = data.descriptionProvider
         this.CNPJProvider = data.CNPJProvider

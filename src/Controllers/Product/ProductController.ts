@@ -1,6 +1,9 @@
 import { Request, Response } from "express";
 import IProductController from "./IProductController";
 import IProductService from "../../Service/Product/IProductService";
+import FilterModel from "../../Domain/Models/FilterModel";
+import ProductModel from "../../Domain/Models/ProductModel";
+import ProductDTO from "../../Domain/DTO/ProductDTO";
 
 
 
@@ -19,13 +22,30 @@ export default class ProductController implements IProductController {
             return Error("Error:" + error)
         }
     }
-    getProducts(req: Request, res: Response): Promise<any> {
-        res.send("obter produtros (com ou sem filtro)")
-        throw new Error("Method not implemented.");
+    async getProducts(req: Request, res: Response): Promise<any> {
+        const body = req.body
+
+        try {
+            const searchFilter = new FilterModel(body)
+            const response = await this.productService.getProducts(searchFilter)
+            return res.json(response)
+        } catch (error) {
+            return Error("Error:" + error)   
+        }
     }
-    insertProduct(req: Request, res: Response): Promise<any> {
-        res.send("inserir produto")
-        throw new Error("Method not implemented.");
+    async insertProduct(req: Request, res: Response): Promise<any> {
+        const body = req.body as ProductDTO
+        const newProduct = new ProductModel(body)
+
+        try {
+            const response  = await this.productService.insertProduct(newProduct)
+
+            return res.json(response)
+        } catch (error) {
+            return Error("Error:" + error)
+        }
+
+
     }
     updateProduct(req: Request, res: Response): Promise<any> {
         res.send("atualizar produto")
