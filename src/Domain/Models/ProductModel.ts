@@ -2,7 +2,7 @@ import ProductDTO from "../DTO/ProductDTO"
 
 export default class ProductModel {
     id?: number
-    descritption: string
+    description: string
     statusProduct: boolean
     expirationDate: Date //data de validade
     manufacturingDate: Date //data de fabricação  
@@ -15,7 +15,7 @@ export default class ProductModel {
         if(data?.id){
             this.id = data.id
         }
-        this.descritption = data.descritption
+        this.description = data.description
         this.statusProduct = data.statusProduct
         this.expirationDate = data.expirationDate
         this.manufacturingDate = data.manufacturingDate

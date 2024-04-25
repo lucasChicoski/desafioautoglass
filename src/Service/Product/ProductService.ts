@@ -1,29 +1,32 @@
 import ProductDTO from "../../Domain/DTO/ProductDTO";
+import ProductModel from "../../Domain/Models/ProductModel";
 import IProductRepository from "../../Infrastructure/Repository/Product/IProductRepository";
 import IProductService from "./IProductService";
 
 
-export default class ProductService implements IProductService{
-    productRepository: IProductRepository    
+export default class ProductService implements IProductService {
+    productRepository: IProductRepository
 
-    constructor(productRepository: IProductRepository){
+    constructor(productRepository: IProductRepository) {
         this.productRepository = productRepository
     }
-   async  getProductById(id: number): Promise<any> {
+    async getProductById(id: number): Promise<any> {
         const response = await this.productRepository.getProductById(id)
 
-        return response
+        const productModel = new ProductModel(response)
+
+        return productModel
     }
-    getProducts(filter: object): Promise<any> {
+    async getProducts(filter: object): Promise<any> {
         throw new Error("Method not implemented.");
     }
-    insertProduct(product: ProductDTO): Promise<any> {
+    async insertProduct(product: ProductDTO): Promise<any> {
         throw new Error("Method not implemented.");
     }
-    updateProduct(product: ProductDTO): Promise<any> {
+    async updateProduct(product: ProductDTO): Promise<any> {
         throw new Error("Method not implemented.");
     }
-    deleteProduct(statusProduct: boolean): Promise<any> {
+    async deleteProduct(statusProduct: boolean): Promise<any> {
         throw new Error("Method not implemented.");
     }
 }

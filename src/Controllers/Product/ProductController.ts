@@ -11,9 +11,10 @@ export default class ProductController implements IProductController {
         this.productService = productService
      }
    async getProductById(req: Request, res: Response): Promise<any> {
-        const id: number = req.body
+        const id: number = req.body.id
         try {
             const response  = await this.productService.getProductById(id);
+            return res.json(response) 
         } catch (error) {
             return Error("Error:" + error)
         }
