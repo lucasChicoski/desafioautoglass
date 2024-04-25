@@ -9,6 +9,17 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Product {
+  id        Int     @id @default(autoincrement())
+  description String
+  statusProduct Boolean @default(true)
+  expirationDate DateTime
+  manufacturingDate DateTime
+  idProvider String
+  descriptionProvider String
+  CNPJProvider String
+}
+
 model Guest {
   id        Int     @id @default(autoincrement())
   name      String

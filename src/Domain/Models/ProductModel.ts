@@ -6,6 +6,9 @@ export default class ProductModel {
     statusProduct: boolean
     expirationDate: Date //data de validade
     manufacturingDate: Date //data de fabricação  
+    idProvider: string
+    descriptionProvider: string
+    CNPJProvider: string
 
 
     constructor(data: ProductDTO){
@@ -16,5 +19,8 @@ export default class ProductModel {
         this.statusProduct = data.statusProduct
         this.expirationDate = data.expirationDate
         this.manufacturingDate = data.manufacturingDate
+        this.idProvider = data.idProvider
+        this.descriptionProvider = data.descriptionProvider
+        this.CNPJProvider = data.CNPJProvider
     }
 }

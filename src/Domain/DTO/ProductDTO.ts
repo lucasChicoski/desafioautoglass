@@ -6,4 +6,7 @@ export default interface ProductDTO{
     statusProduct: boolean
     expirationDate: Date //data de validade
     manufacturingDate: Date //data de fabricação
+    idProvider: string
+    descriptionProvider: string
+    CNPJProvider: string
 }
