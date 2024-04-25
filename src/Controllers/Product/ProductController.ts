@@ -47,9 +47,17 @@ export default class ProductController implements IProductController {
 
 
     }
-    updateProduct(req: Request, res: Response): Promise<any> {
-        res.send("atualizar produto")
-        throw new Error("Method not implemented.");
+    async updateProduct(req: Request, res: Response): Promise<any> {
+        const body = req.body as ProductDTO
+
+        const updateProduct = new ProductModel(body)
+
+        try {
+            const response = await this.productService.updateProduct(updateProduct)
+            return res.json(response)
+        } catch (error) {
+            return Error("Error:" + error)
+        }
     }
     async deleteProduct(req: Request, res: Response): Promise<any> {
         const id = req.body.id

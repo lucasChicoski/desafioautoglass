@@ -42,12 +42,20 @@ export default class ProductService implements IProductService {
         }
 
         return {
-            "Menssagem": "Não foi possível Adicionar item"
+            "Menssagem": "Não foi possível Adicionar o item"
         };
 
     }
     async updateProduct(product: ProductDTO): Promise<any> {
-        throw new Error("Method not implemented.");
+        const response = await this.productRepository.updateProduct(product)
+
+        if(response){
+            return response
+        }
+
+        return {
+            "Menssagem": "Não foi possível atualizar o item"
+        };
     }
     async deleteProduct(id: number): Promise<any> {
         const response = await this.productRepository.deleteProduct(id)
