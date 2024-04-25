@@ -10,9 +10,13 @@ export default class ProductController implements IProductController {
     constructor(productService: IProductService) {
         this.productService = productService
      }
-    getProductById(req: Request, res: Response): Promise<any> {
-        res.send("rota obter produto por Id")
-        throw new Error("Method not implemented.");
+   async getProductById(req: Request, res: Response): Promise<any> {
+        const id: number = req.body
+        try {
+            const response  = await this.productService.getProductById(id);
+        } catch (error) {
+            return Error("Error:" + error)
+        }
     }
     getProducts(req: Request, res: Response): Promise<any> {
         res.send("obter produtros (com ou sem filtro)")
