@@ -3,7 +3,7 @@ import IProductRepository from "./IProductRepository";
 
 import { prisma } from "../../../../prisma/GlobalInstance"
 import FilterModel from "../../../Domain/Models/FilterModel";
-import { Product } from "@prisma/client";
+
 
 export default class ProductRepository implements IProductRepository {
 

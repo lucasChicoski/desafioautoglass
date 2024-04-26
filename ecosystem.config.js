@@ -1,6 +1,6 @@
 module.exports = {
   apps : [{
-    name   : "api-guest",
+    name   : "desafio-autoglass",
     interpreter : "ts-node",
     script : "./src/app.ts",
     instances: "1",
