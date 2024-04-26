@@ -5,7 +5,7 @@ const prisma = new PrismaClient()
 
 const listProduct: ProductDTO[] = [
     {
-    descritption: "Mouse Corsair ", 
+    description: "Mouse Corsair ", 
     statusProduct: true,
     expirationDate: new Date(),
     manufacturingDate: new Date(),
@@ -22,7 +22,7 @@ async function main() {
         await prisma?.product.create({
             data:{
                 CNPJProvider: element.CNPJProvider,
-                description: element.descritption,
+                description: element.description,
                 descriptionProvider: element.descriptionProvider,
                 expirationDate: element.expirationDate,
                 idProvider: element.idProvider,

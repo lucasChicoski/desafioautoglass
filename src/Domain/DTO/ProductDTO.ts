@@ -2,7 +2,7 @@
 
 export default interface ProductDTO{
     id?: number
-    descritption: string
+    description: string
     statusProduct: boolean
     expirationDate: Date //data de validade
     manufacturingDate: Date //data de fabricação
