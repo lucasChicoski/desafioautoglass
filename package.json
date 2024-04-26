@@ -9,7 +9,8 @@
     "start": "nodemon src/app.ts",
     "seed": "ts-node prisma/seed.ts",
     "migration": "npx prisma migrate dev --name init   ",
-    "teste": "prisma generate"
+    "teste": "prisma generate",
+    "build": "tsc"
   },
   "author": "",
   "license": "ISC",
