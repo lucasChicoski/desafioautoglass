@@ -19,9 +19,3 @@ model Product {
   descriptionProvider String
   CNPJProvider String
 }
-
-model Guest {
-  id        Int     @id @default(autoincrement())
-  name      String
-  confirmed Boolean @default(false)
-}
