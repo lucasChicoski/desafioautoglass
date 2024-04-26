@@ -88,3 +88,4 @@ yarn start
 ```
 
 [url do projeto em produção](desafioautoglass.turingcode.com.br/teste)
+`desafioautoglass.turingcode.com.br/teste`
