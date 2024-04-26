@@ -15,6 +15,7 @@ function setRouter(app: Router) {
    app.post('/products/insertproducts', (req, res) => productController.insertProduct(req, res))
    app.put('/products/updateproducts', (req, res) => productController.updateProduct(req, res))
    app.delete('/products/deleteproducts', (req, res) => productController.deleteProduct(req, res))
+   app.get('/teste', (req, res) => res.send("Api funcionando 🚀") )
 }
 
 
